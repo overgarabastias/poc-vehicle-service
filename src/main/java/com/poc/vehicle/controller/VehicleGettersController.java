@@ -13,5 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping(value="/ansible/setters", produces="application/json;charset=UTF-8")
 @Slf4j
 public class VehicleGettersController {
-
+	
+	
 }
