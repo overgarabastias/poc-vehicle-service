@@ -1,0 +1,13 @@
+.classpath
+.git/
+logs/
+.proyect
+target/
+/.project
+*.settings
+/.attach_pid9253
+/.attach_pid28097
+/.attach_pid23471
+/bin/
+
+.mvn/*

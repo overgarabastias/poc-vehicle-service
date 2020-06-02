@@ -1,0 +1,29 @@
+server:
+  port: 5500
+  max-http-header-size: 100KB
+  
+spring:
+  profiles:
+    include: 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+        hibernate:
+          format_sql: true
+        use_sql_comments: true
+        connection:
+          charSet: UTF-8
+          characterEncoding: utf-8
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.200.10/performance
+    username: postgres
+    password: ts*admin
+    hikari:
+      auto-commit: true
+      minimum-idle: 1
+      maximum-pool-size: 10
+      idle-timeout: 10000
+      poolName: modules
+      maxLifetime: 1800000
