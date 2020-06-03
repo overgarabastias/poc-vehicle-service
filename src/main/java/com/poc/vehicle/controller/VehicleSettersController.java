@@ -67,7 +67,7 @@ public class VehicleSettersController {
 	}
 	
 	
-	@ApiOperation(value = "Crear o actualizar un vehiculo")
+	@ApiOperation(value = "Eliminar un vehiculo")
 	@DeleteMapping(value="/delete")
 	public ResponseEntity<Vehicle> delete(@RequestParam(name = "id", required = true) Long id){
 		log.info("Call service /poc/vehicles/setters/delete");
