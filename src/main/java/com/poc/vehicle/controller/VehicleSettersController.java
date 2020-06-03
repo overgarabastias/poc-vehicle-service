@@ -25,7 +25,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/poc/vehicles/setters"})
+@Api(tags = {"/poc/vehicles/setters"})
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/poc/vehicles/setters", produces="application/json;charset=UTF-8")
@@ -44,9 +44,11 @@ public class VehicleSettersController {
 		log.info("Call service /poc/vehicles/setters/create");
 		ResponseEntity<Vehicle> response;
 		try {
+			
 			Vehicle vehicle = new Vehicle();
 			
 			Owner owner = ownerDb.findById(request.getOwnerId()).get();
+			
 			vehicle.setModel(request.getModel());
 			vehicle.setType(request.getType());
 			vehicle.setOwner(owner);
@@ -83,7 +85,6 @@ public class VehicleSettersController {
 				
 				return response;
 			}else {
-				
 				response = new ResponseEntity<Vehicle>(HttpStatus.BAD_REQUEST);
 			
 				return response;
@@ -105,7 +106,9 @@ public class VehicleSettersController {
 			
 			Optional<Vehicle> vehicleOp = vehicleDb.findById(id);
 			if (vehicleOp.isPresent()) {
+				
 				Vehicle vehicle = vehicleOp.get();
+				
 				vehicle.setStatus(Status.active);
 				
 				Vehicle vehicleSave = vehicleDb.save(vehicle);

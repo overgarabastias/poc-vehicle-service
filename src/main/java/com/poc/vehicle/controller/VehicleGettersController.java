@@ -18,7 +18,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/poc/vehicles/getters"})
+@Api(tags = {"/poc/vehicles/getters"})
 @CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value="/poc/vehicles/getters", produces="application/json;charset=UTF-8")
