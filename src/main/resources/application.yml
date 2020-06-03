@@ -6,11 +6,8 @@ app:
 
 server:
   port: 5500
-  max-http-header-size: 100KB
   
 spring:
-  profiles:
-    include: 
   jpa:
     hibernate:
       ddl-auto: update
@@ -33,7 +30,7 @@ spring:
       idle-timeout: 10000
       poolName: modules
       maxLifetime: 1800000
-      
+
 logging:
   file:
     name: ./logs/poc-vehicle-service.log
