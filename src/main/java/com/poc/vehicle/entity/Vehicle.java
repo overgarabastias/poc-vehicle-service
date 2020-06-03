@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,12 +32,12 @@ public class Vehicle {
 	@Column(name="type")
 	private TypeVahicle type;
 	
-	@ManyToOne
-	@JoinColumn(name="ownerId")
-	private Owner owner;
-	
 	@Enumerated(EnumType.STRING)
 	@Column(name="status")
 	private Status status;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name="ownerId")
+	private Owner owner;
 
 }

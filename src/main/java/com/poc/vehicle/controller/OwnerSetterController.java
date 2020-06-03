@@ -18,10 +18,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/owners/setters"})
+@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/poc/owners/setters"})
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value="/owners/setters", produces="application/json;charset=UTF-8")
+@RequestMapping(value="/poc/owners/setters", produces="application/json;charset=UTF-8")
 @Slf4j
 public class OwnerSetterController {
 	
@@ -31,6 +31,7 @@ public class OwnerSetterController {
 	@ApiOperation(value = "Crear vehiculo")
 	@PostMapping(value="/create")
 	public ResponseEntity<Owner> create(@RequestBody OwnerTo request){
+		log.info("Call service /poc/owners/setters/create");
 		ResponseEntity<Owner> response;
 		try {
 			

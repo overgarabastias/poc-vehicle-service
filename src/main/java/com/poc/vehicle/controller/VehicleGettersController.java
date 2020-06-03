@@ -18,10 +18,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 
-@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/vehicles/getters"})
+@Api(description = "Servicio para administrar ejecutar un comando de ansible para levantar maquinas", tags = {"/poc/vehicles/getters"})
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(value="/vehicles/getters", produces="application/json;charset=UTF-8")
+@RequestMapping(value="/poc/vehicles/getters", produces="application/json;charset=UTF-8")
 @Slf4j
 public class VehicleGettersController {
 	
@@ -31,7 +31,7 @@ public class VehicleGettersController {
 	@ApiOperation(value = "Obtener todos los vehiculos")
 	@GetMapping(value="/getAll")
 	public ResponseEntity<List<Vehicle>> getAll(){
-		log.info("Call service /vehicles/getters/getAll");
+		log.info("Call service /poc/vehicles/getters/getAll");
 		ResponseEntity<List<Vehicle>> response;
 		try {
 			List<Vehicle> vehicles = vehicleDb.findAll();
@@ -47,10 +47,10 @@ public class VehicleGettersController {
 	@ApiOperation(value = "Obtener un vehiculo por id")
 	@GetMapping(value="/getById")
 	public ResponseEntity<Vehicle> getById(@RequestParam(name = "id", required = true) Long id){
-		log.info("Call service /vehicles/getters/getById");
+		log.info("Call service /poc/vehicles/getters/getById");
 		ResponseEntity<Vehicle> response;
 		try {
-			Vehicle vehicle = vehicleDb.getOne(id);
+			Vehicle vehicle = vehicleDb.findById(id).get();
 			response = new ResponseEntity<Vehicle>(vehicle, HttpStatus.OK);
 			return response;
 		} catch (Exception e) {

@@ -37,7 +37,4 @@ public class Owner {
 	@Column(name="status")
 	private Status status;
 	
-	@OneToMany
-	private List<Vehicle> vehicles;
-	
 }
