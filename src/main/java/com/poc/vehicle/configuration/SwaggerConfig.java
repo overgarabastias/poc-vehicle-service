@@ -50,7 +50,7 @@ public class SwaggerConfig {
     }
    
    private Predicate<String> paths() {
-	    return regex("/ansible.*");
+	    return regex("/vehicles.*");
 	  }
    
 

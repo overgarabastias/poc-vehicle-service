@@ -1,5 +1,5 @@
 package com.poc.vehicle.utils;
 
 public enum TypeVahicle {
-	camion, camioneta, furgon
+	camion, camioneta, furgon, citycar
 }

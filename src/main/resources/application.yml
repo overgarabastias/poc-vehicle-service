@@ -1,3 +1,9 @@
+app:
+  artifactId: '@project.artifactId@'
+  version: '@project.version@'
+  description: '@project.description@'
+
+
 server:
   port: 5500
   max-http-header-size: 100KB
@@ -17,9 +23,9 @@ spring:
           characterEncoding: utf-8
   datasource:
     driverClassName: org.postgresql.Driver
-    url: jdbc:postgresql://192.168.200.10/performance
+    url: jdbc:postgresql://localhost/poc-vehicle-service
     username: postgres
-    password: ts*admin
+    password: admin*local01
     hikari:
       auto-commit: true
       minimum-idle: 1
@@ -27,3 +33,8 @@ spring:
       idle-timeout: 10000
       poolName: modules
       maxLifetime: 1800000
+      
+logging:
+  file:
+    name: ./logs/poc-vehicle-service.log
+

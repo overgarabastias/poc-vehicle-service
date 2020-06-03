@@ -1,16 +1,24 @@
 package com.poc.vehicle.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import com.poc.vehicle.utils.Status;
 import com.poc.vehicle.utils.TypeVahicle;
 
+import lombok.Data;
+
+@Entity
+@Data
 public class Vehicle {
 	
 	@Id
@@ -25,8 +33,12 @@ public class Vehicle {
 	@Column(name="type")
 	private TypeVahicle type;
 	
-	@OneToOne
-	@JoinColumn(name="driverId")
-	private driver driver;
+	@ManyToOne
+	@JoinColumn(name="ownerId")
+	private Owner owner;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="status")
+	private Status status;
 
 }
